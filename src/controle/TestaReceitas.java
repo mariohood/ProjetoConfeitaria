@@ -24,14 +24,15 @@ public class TestaReceitas {
      
       JOptionPane.showMessageDialog(null,"Bom Dia!");
         String nome = JOptionPane.showInputDialog("Qual o seu nome ?");
-        JOptionPane.showMessageDialog(null,"Bem vindo " + nome);
-        String ano = JOptionPane.showInputDialog("Em que ano você naceu ?");
+        JOptionPane.showMessageDialog(null,"Bem vindo à Confiteiria Três Amigos Sr(a) " + nome);
+        //String ano = 
+        JOptionPane.showMessageDialog(null,"Em que podemos atenderlo(a)");
         //Integer i = new Integer(ano);
         //int a = i.intValue();
-        int a = Integer.parseInt(ano);
-        int idade = 2019 - a;
-        JOptionPane.showMessageDialog(null,"Você tem " + idade + " anos");
-        String altura = JOptionPane.showInputDialog("Qual é sua altura ?");
+        //int a = Integer.parseInt(ano);
+        //int idade = 2019 - a;
+        //JOptionPane.showMessageDialog(null,"Você tem " + idade + " anos");
+        String pedido = JOptionPane.showInputDialog("Qual é seu pedido:");
         
         
         
