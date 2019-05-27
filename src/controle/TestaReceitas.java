@@ -20,7 +20,8 @@ public class TestaReceitas {
     //usando Scaner para receber mensagens de Usuario
     Scanner scan = new Scanner(System.in);
     // Comentario de Rafa
-    //segundo test
+    // segundo teste
+    // tercer teste
     
      // usando a classe Javax.Swing
      
