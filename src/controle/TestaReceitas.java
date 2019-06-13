@@ -12,6 +12,8 @@ import model.Torta;
 import view.Tela;
 import java.util.Scanner;
 import javax.swing.*;
+import model.BoloCoberturaDAO;
+import model.TortaDAO;
 
 
 public class TestaReceitas {
@@ -25,24 +27,31 @@ public class TestaReceitas {
     
      // usando a classe Javax.Swing
      
-      JOptionPane.showMessageDialog(null,"Bom Dia!");
-        String nome = JOptionPane.showInputDialog("Qual o seu nome ?");
-        JOptionPane.showMessageDialog(null,"Bem vindo à Confiteiria Três Amigos Sr(a) " + nome);
-        //String ano = 
-        JOptionPane.showMessageDialog(null,"Em que podemos atenderlo(a)");
-        //Integer i = new Integer(ano);
-        //int a = i.intValue();
-        //int a = Integer.parseInt(ano);
-        //int idade = 2019 - a;
-        //JOptionPane.showMessageDialog(null,"Você tem " + idade + " anos");
-        String pedido = JOptionPane.showInputDialog("Qual é seu pedido:");
+      
         
+        
+        
+        
+        
+        
+        
+       /* 
+        int escolha = 1;
+        
+        if(escolha == 1){
+        
+        }else if(escolha == 2){
+        
+        }else if(escolha == 3) {
+        
+        }else System.out.println("Opção Inváida");
+        */
         
         
     //para usar só duas casa decimais
     DecimalFormat df = new DecimalFormat("##.##");
     
-    // Instanciar los Produtos
+    // Instanciar os Produtos
     Produto farinha, leite, manteiga, acucar, ovos, cacao, leiteCoco,
             milho, laranja, chocolate, cremeDeLeite;
     farinha = new Produto("Farinha",0.1f, 0.2f, 0.3f);
@@ -68,6 +77,9 @@ public class TestaReceitas {
     produtos.add(milho);
     produtos.add(laranja);
     
+    TortaDAO td = new TortaDAO();
+    BoloCoberturaDAO bcd = new BoloCoberturaDAO();
+       
     //Instanciar os receitas de Bolo e colocar ingredientes na Lista 
     Bolo bolo1, bolo2, bolo3, bolo4, bolo5, bolo6;
     
@@ -85,6 +97,8 @@ public class TestaReceitas {
     bolo1.adicionaIngrediente(ingB1_4);
     bolo1.adicionaIngrediente(ingB1_5);
     
+    bcd.inserir(bolo1);
+ 
     //Bolo de Laranja Cobertura Leite Condensado
     bolo2 = new BoloCobertura ("Bolo de Laranja Cobertura Leite Condensado");
     Ingrediente ingB2_1,ingB2_2,ingB2_3, ingB2_4, ingB2_5;
@@ -98,6 +112,8 @@ public class TestaReceitas {
     bolo2.adicionaIngrediente(ingB2_3);
     bolo2.adicionaIngrediente(ingB2_4);
     bolo2.adicionaIngrediente(ingB2_5);
+    
+    bcd.inserir(bolo1);
 
     //Torta Martha Rocha
     
@@ -112,6 +128,7 @@ public class TestaReceitas {
     ingB4_5 = new Ingrediente(30,ovos);
     ingB4_6 = new Ingrediente(60,chocolate);
     ingB4_7 = new Ingrediente(30,cremeDeLeite);
+    
     bolo4.adicionaIngrediente(ingB4_1);
     bolo4.adicionaIngrediente(ingB4_2);
     bolo4.adicionaIngrediente(ingB4_3);
@@ -128,6 +145,12 @@ public class TestaReceitas {
     
     
     //Lista de Bolos
+    
+    
+    
+    
+    
+    
     List<Bolo> bolos = new ArrayList<Bolo>();
     bolos.add(bolo1);
     bolos.add(bolo2);
@@ -153,6 +176,45 @@ public class TestaReceitas {
     System.out.println("Imprime Lista de Bolos");
     System.out.println();
     tela.imprimeBolos(bolos);
+    
+    JOptionPane.showMessageDialog(null,"Bom Dia!");
+        String nome = JOptionPane.showInputDialog("Qual o seu nome ?");
+        JOptionPane.showMessageDialog(null,"Bem vindo à Confiteiria Três Amigos Sr(a) " + nome);
+        //String ano = 
+        JOptionPane.showMessageDialog(null,"Em que podemos atenderlo(a)");
+        //Integer i = new Integer(ano);
+        //int a = i.intValue();
+        //int a = Integer.parseInt(ano);
+        //int idade = 2019 - a;
+        //JOptionPane.showMessageDialog(null,"Você tem " + idade + " anos");
+        
+        
+        
+        
+        ArrayList <BoloCobertura> bolosCob = bcd.getBolosCobertura();
+        int tamanho = bcd.getBolosCobertura().size();
+        
+        String[] opcoes = null;
+        
+        for(int i = 0 ; i < tamanho ; i++){
+            System.out.println("bla bla");
+            opcoes[i] = bolosCob.get(i).getNome(); 
+
+        }
+        
+        
+       
+        
+        
+         String[] choices = { "A", "B", "C", "D", "E", "F" };
+         
+            String input = (String) JOptionPane.showInputDialog(null, "Choose now...",
+            "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
+                                                                        // default
+                                                                        // icon
+        choices, // Array of choices
+        choices[1]); // Initial choice
+    System.out.println(input);
     
     
     }//Fim main
