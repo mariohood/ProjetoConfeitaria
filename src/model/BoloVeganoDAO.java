@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class BoloVeganoDAO implements InterfaceDAO {
-    private ArrayList<BoloCobertura> bolosVeganos = new ArrayList();
+    private ArrayList<BoloVegano> bolosVeganos = new ArrayList();
 
     @Override
     public boolean inserir(Object obj) {
-        BoloCobertura b = (BoloCobertura) obj;
-        return (bolosVeganos.add(b));    }
+        BoloVegano b = (BoloVegano) obj;
+        return (getBolosVeganos().add(b));    }
 
     @Override
     public boolean excluir(Object obj) {
-        Object ob = (BoloCobertura)obj;
+        Object ob = (BoloVegano)obj;
         for(int i = 0 ; i < 10 ; i++){          
-            if(ob.equals(bolosVeganos.get(i))){
-                bolosVeganos.remove(i);
+            if(ob.equals(getBolosVeganos().get(i))){
+                getBolosVeganos().remove(i);
                 return true;
             }
            
@@ -31,23 +31,7 @@ public class BoloVeganoDAO implements InterfaceDAO {
         /*
         
          
-        String nomeBolo = JOptionPane.showInputDialog("Novo nome do bolo: ");
-        BoloVegano bv = new BoloVegano (nomeBolo);
-        
-        Ingrediente ingB1_1,ingB1_2,ingB1_3, ingB1_4, ingB1_5;
-    ingB1_1 = new Ingrediente(60,farinha);
-    ingB1_2 = new Ingrediente(80,leite);
-    ingB1_3 = new Ingrediente(50,manteiga);
-    ingB1_4 = new Ingrediente(60,acucar);
-    ingB1_5 = new Ingrediente(40,milho);
-    bolo1.adicionaIngrediente(ingB1_1);
-    bolo1.adicionaIngrediente(ingB1_2);
-    bolo1.adicionaIngrediente(ingB1_3);
-    bolo1.adicionaIngrediente(ingB1_4);
-    bolo1.adicionaIngrediente(ingB1_5);
-        
-    
-
+       
 
         for(int i = 0 ; i < 10 ; i++){
             
@@ -69,14 +53,23 @@ public class BoloVeganoDAO implements InterfaceDAO {
 
          for(int i = 0 ; i < 10 ; i++){
             
-            if(obj.equals(bolosVeganos.get(i))){
-                System.out.println(bolosVeganos.toString());
+            if(obj.equals(getBolosVeganos().get(i))){
+                System.out.println(getBolosVeganos().toString());
                 return true;
             }
            
         }
         return false;
     }
+
+    /**
+     * @return the bolosVeganos
+     */
+    public ArrayList<BoloVegano> getBolosVeganos() {
+        return bolosVeganos;
+    }
+
+    
 
    
     

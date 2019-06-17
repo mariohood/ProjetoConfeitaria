@@ -30,24 +30,7 @@ public class BoloCoberturaDAO implements InterfaceDAO {
     public boolean editar(Object obj) {
         
          /*
-        String nomeBolo = JOptionPane.showInputDialog("Novo nome do bolo: ");
-        BoloCobertura bc = new BoloCobertura (nomeBolo);
         
-        Ingrediente ingB1_1,ingB1_2,ingB1_3, ingB1_4, ingB1_5;
-    ingB1_1 = new Ingrediente(60,farinha);
-    ingB1_2 = new Ingrediente(80,leite);
-    ingB1_3 = new Ingrediente(50,manteiga);
-    ingB1_4 = new Ingrediente(60,acucar);
-    ingB1_5 = new Ingrediente(40,milho);
-    bolo1.adicionaIngrediente(ingB1_1);
-    bolo1.adicionaIngrediente(ingB1_2);
-    bolo1.adicionaIngrediente(ingB1_3);
-    bolo1.adicionaIngrediente(ingB1_4);
-    bolo1.adicionaIngrediente(ingB1_5);
-        
-    
-
-
         for(int i = 0 ; i < 10 ; i++){
             
             if(obj.equals(bolosCobertura.get(i))){
@@ -67,12 +50,14 @@ public class BoloCoberturaDAO implements InterfaceDAO {
     public boolean pesquisar(Object obj) {
 
          for(int i = 0 ; i < 10 ; i++){
-            
+            /*
             if(obj.equals(getBolosCobertura().get(i))){
                 System.out.println(getBolosCobertura().toString());
                 return true;
             }
-           
+           */
+            
+            
         }
         return false;
     }
@@ -82,6 +67,7 @@ public class BoloCoberturaDAO implements InterfaceDAO {
         return bolosCobertura;
     }
 
+   
     
     
     

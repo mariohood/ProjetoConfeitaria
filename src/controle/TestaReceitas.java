@@ -13,6 +13,9 @@ import view.Tela;
 import java.util.Scanner;
 import javax.swing.*;
 import model.BoloCoberturaDAO;
+import model.BoloVegano;
+import model.BoloVeganoDAO;
+import model.Sabor;
 import model.TortaDAO;
 
 
@@ -21,33 +24,7 @@ public class TestaReceitas {
     
     //usando Scaner para receber mensagens de Usuario
     Scanner scan = new Scanner(System.in);
-    // Comentario de Rafa
-    // segundo teste
-    // tercer teste
-    
-     // usando a classe Javax.Swing
-     
-      
-        
-        
-        
-        
-        
-        
-        
-       /* 
-        int escolha = 1;
-        
-        if(escolha == 1){
-        
-        }else if(escolha == 2){
-        
-        }else if(escolha == 3) {
-        
-        }else System.out.println("Opção Inváida");
-        */
-        
-        
+       
     //para usar só duas casa decimais
     DecimalFormat df = new DecimalFormat("##.##");
     
@@ -65,6 +42,7 @@ public class TestaReceitas {
     laranja = new Produto("Laranja", 0.2f, 0.2f, 0.2f);
     chocolate = new Produto("Chocolate", 0.3f, 0.5f, 0.6f);
     cremeDeLeite = new Produto("Creme de Leite", 0.2f, 0.3f, 0.3f);
+    
     //Lista de Produtos
     List<Produto> produtos = new ArrayList<Produto>();
     produtos.add(farinha);
@@ -77,14 +55,25 @@ public class TestaReceitas {
     produtos.add(milho);
     produtos.add(laranja);
     
-    TortaDAO td = new TortaDAO();
+    Sabor s1 = new Sabor("chocolate");
+    Sabor s2 = new Sabor("coco");
+    Sabor s3 = new Sabor("morango");
+    Sabor s4 = new Sabor("laranja");
+    Sabor s5 = new Sabor("milho");
+    
+    
+    
+        
+    //Criando as coleções DAO
     BoloCoberturaDAO bcd = new BoloCoberturaDAO();
+    BoloVeganoDAO bvd = new BoloVeganoDAO();
+    TortaDAO td = new TortaDAO();
        
     //Instanciar os receitas de Bolo e colocar ingredientes na Lista 
     Bolo bolo1, bolo2, bolo3, bolo4, bolo5, bolo6;
     
     //Bolo de Milho Cobertura Chocolate
-    bolo1 = new BoloCobertura ("Bolo de Milho Cobertura Chocolate");
+    bolo1 = new BoloCobertura (100,"Bolo de Milho Cobertura Chocolate");
     Ingrediente ingB1_1,ingB1_2,ingB1_3, ingB1_4, ingB1_5;
     ingB1_1 = new Ingrediente(60,farinha);
     ingB1_2 = new Ingrediente(80,leite);
@@ -100,7 +89,7 @@ public class TestaReceitas {
     bcd.inserir(bolo1);
  
     //Bolo de Laranja Cobertura Leite Condensado
-    bolo2 = new BoloCobertura ("Bolo de Laranja Cobertura Leite Condensado");
+    bolo2 = new BoloCobertura (101,"Bolo de Laranja Cobertura Leite Condensado");
     Ingrediente ingB2_1,ingB2_2,ingB2_3, ingB2_4, ingB2_5;
     ingB2_1 = new Ingrediente(90,farinha);
     ingB2_2 = new Ingrediente(60,leite);
@@ -113,13 +102,29 @@ public class TestaReceitas {
     bolo2.adicionaIngrediente(ingB2_4);
     bolo2.adicionaIngrediente(ingB2_5);
     
-    bcd.inserir(bolo1);
+    bcd.inserir(bolo2);
 
     //Torta Martha Rocha
+    bolo3 = new Torta (200,"Torta Martha Rocha");
+    Ingrediente ingB3_1,ingB3_2,ingB3_3, ingB3_4,ingB3_5,ingB3_6,ingB3_7;
+    ingB3_1 = new Ingrediente(90,farinha);
+    ingB3_2 = new Ingrediente(60,leite);
+    ingB3_3 = new Ingrediente(40,manteiga);
+    ingB3_4 = new Ingrediente(60,acucar);
+    ingB3_5 = new Ingrediente(30,ovos);
+    ingB3_6 = new Ingrediente(60,chocolate);
+    ingB3_7 = new Ingrediente(30,cremeDeLeite);
     
+    bolo3.adicionaIngrediente(ingB3_1);
+    bolo3.adicionaIngrediente(ingB3_2);
+    bolo3.adicionaIngrediente(ingB3_3);
+    bolo3.adicionaIngrediente(ingB3_4);
+    bolo3.adicionaIngrediente(ingB3_5);
+    bolo3.adicionaIngrediente(ingB3_6);
+    bolo3.adicionaIngrediente(ingB3_7);
 
     //Torta Floresta Negra
-    bolo4 = new Torta ("Torta Floresta Negra");
+    bolo4 = new Torta (201,"Torta Floresta Negra");
     Ingrediente ingB4_1,ingB4_2,ingB4_3, ingB4_4,ingB4_5,ingB4_6,ingB4_7;
     ingB4_1 = new Ingrediente(90,farinha);
     ingB4_2 = new Ingrediente(60,leite);
@@ -136,28 +141,11 @@ public class TestaReceitas {
     bolo4.adicionaIngrediente(ingB4_5);
     bolo4.adicionaIngrediente(ingB4_6);
     bolo4.adicionaIngrediente(ingB4_7);
-    //Bolo Vegano de Coco
     
-
-    //Bolo Vegano de Fuba
+    td.inserir(bolo3);
+    td.inserir(bolo4);
     
-    
-    
-    
-    //Lista de Bolos
-    
-    
-    
-    
-    
-    
-    List<Bolo> bolos = new ArrayList<Bolo>();
-    bolos.add(bolo1);
-    bolos.add(bolo2);
-    //bolos.add(bolo3);
-    bolos.add(bolo4);
-    //bolos.add(bolo5);
-    //bolos.add(bolo6);
+    /*
     
     System.out.println("Nome -    " + "\tCarboidratos - Proteinas - Gordura - Calorias");
     for(Produto prod : produtos){
@@ -169,53 +157,106 @@ public class TestaReceitas {
     //Imprime Bolo
     System.out.println("Nome: " + bolo1.getNome());
     
-     System.out.println("-------------------------------------------------------");
+    System.out.println("-------------------------------------------------------");
      
-    Tela tela = new Tela();
-    
-    System.out.println("Imprime Lista de Bolos");
-    System.out.println();
-    tela.imprimeBolos(bolos);
-    
-    JOptionPane.showMessageDialog(null,"Bom Dia!");
-        String nome = JOptionPane.showInputDialog("Qual o seu nome ?");
-        JOptionPane.showMessageDialog(null,"Bem vindo à Confiteiria Três Amigos Sr(a) " + nome);
-        //String ano = 
-        JOptionPane.showMessageDialog(null,"Em que podemos atenderlo(a)");
-        //Integer i = new Integer(ano);
-        //int a = i.intValue();
-        //int a = Integer.parseInt(ano);
-        //int idade = 2019 - a;
-        //JOptionPane.showMessageDialog(null,"Você tem " + idade + " anos");
+
+*/
+    JOptionPane.showMessageDialog(null,"Confeitaria Três Amigos");
+    String nome = JOptionPane.showInputDialog("Qual o seu nome ?");
         
         
-        
+        //JOptionPane.showMessageDialog(null,"Bem vindo à Confeitaria Três Amigos Sr(a) " + nome);
+        //JOptionPane.showMessageDialog(null,"Em que podemos atenderlo(a)");
         
         ArrayList <BoloCobertura> bolosCob = bcd.getBolosCobertura();
-        int tamanho = bcd.getBolosCobertura().size();
+        int tamCob = bcd.getBolosCobertura().size(); 
+        ArrayList <BoloVegano> bolosVeg = bvd.getBolosVeganos();
+        int tamVeg = bvd.getBolosVeganos().size();
+        ArrayList <Torta> bolosTor = td.getTortas();
+        int tamTor = td.getTortas().size();
+ 
+        ArrayList <Bolo> totalBolos = new ArrayList(); // api metodo addAll
+        totalBolos.addAll(bolosCob); // concatenando listas completas
+        totalBolos.addAll(bolosVeg); // concatenando listas completas
+        totalBolos.addAll(bolosTor); // concatenando listas completas
         
-        String[] opcoes = null;
+        int tamanho = tamCob + tamVeg + tamTor;
+        String[] opcoes = new String[tamanho];
+        System.out.println("Tamanho: " + tamanho);
         
         for(int i = 0 ; i < tamanho ; i++){
-            System.out.println("bla bla");
-            opcoes[i] = bolosCob.get(i).getNome(); 
-
+            opcoes[i] = totalBolos.get(i).getNome();
         }
         
+        String[] listaUser = {"Vendedor","Confeiteiro"};
+        String input1 = (String) JOptionPane.showInputDialog(null, "Informe sua função: ",
+        "Função", JOptionPane.QUESTION_MESSAGE, null, // Use
+        listaUser, // Array of choices
+        listaUser[0]); // Initial choice
+        String usuario = input1;
         
-       
+        if(usuario.equalsIgnoreCase("Vendedor")){
+            
+                String input2 = (String) JOptionPane.showInputDialog(null, "Selecione o bolo: ",
+                "Escolha", JOptionPane.QUESTION_MESSAGE, null, // Use
+                opcoes, // Array of choices
+                opcoes[0]); // Initial choice
+                String escolhido = input2;
+
+                String q = JOptionPane.showInputDialog("Quantidade: ");
+                int qtde = Integer.parseInt(q);
+                //double qtde = Double.parseDouble("2.3");
+                System.out.println(qtde + " " + escolhido);
+                
+        }
+        else if(usuario.equalsIgnoreCase("Confeiteiro")){
+            String opcaoInicial = JOptionPane.showInputDialog
+                ("Selecione a opção desejada:"
+                    + "1-Inserir"
+                    + "2-Excluir"
+                    + "3-Editar"
+                    + "4-Pesquisar");
+
+            switch(opcaoInicial){
+
+                case "1":
+                    String[] listaTipos = {"Bolo Cobertura","Bolo Vegano","Bolo Torta"};
+                    String input3 = (String) JOptionPane.showInputDialog(null, "Informe o tipo de bolo: ",
+                    "Tipos", JOptionPane.QUESTION_MESSAGE, null, // Use
+                    listaTipos, // Array of choices
+                    listaTipos[0]); // Initial choice
+                    String tipo = input3;
+                    if (tipo.equalsIgnoreCase("Bolo Cobertura")){
+                        bcd.inserir(bolo4);
+                    }
+                    else if(tipo.equalsIgnoreCase("Bolo Vegano")){
+                        bvd.inserir(bolo4);
+                    }
+                    else if(tipo.equalsIgnoreCase("Bolo Torta")){
+                        td.inserir(bolo4);
+                    }
+                    break;
+                case "2":
+                    
+                    
+                    
+                    
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                default:
+
+            }
+        };
         
         
-         String[] choices = { "A", "B", "C", "D", "E", "F" };
-         
-            String input = (String) JOptionPane.showInputDialog(null, "Choose now...",
-            "The Choice of a Lifetime", JOptionPane.QUESTION_MESSAGE, null, // Use
-                                                                        // default
-                                                                        // icon
-        choices, // Array of choices
-        choices[1]); // Initial choice
-    System.out.println(input);
-    
+        
+
+        
+                 
+        
     
     }//Fim main
 }//Fim TestaReceitas

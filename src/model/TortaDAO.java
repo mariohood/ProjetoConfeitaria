@@ -7,19 +7,19 @@ import javax.swing.JOptionPane;
 public class TortaDAO implements InterfaceDAO {
     
    
-    private ArrayList<BoloCobertura> Tortas = new ArrayList();
+    private ArrayList<Torta> Tortas = new ArrayList();
 
     @Override
     public boolean inserir(Object obj) {
-        BoloCobertura b = (BoloCobertura) obj;
-        return (Tortas.add(b));    }
+        Torta b = (Torta) obj;
+        return (getTortas().add(b));    }
 
     @Override
     public boolean excluir(Object obj) {
-        Object ob = (BoloCobertura)obj;
+        Object ob = (Torta)obj;
         for(int i = 0 ; i < 10 ; i++){          
-            if(ob.equals(Tortas.get(i))){
-                Tortas.remove(i);
+            if(ob.equals(getTortas().get(i))){
+                getTortas().remove(i);
                 return true;
             }
            
@@ -31,24 +31,6 @@ public class TortaDAO implements InterfaceDAO {
     public boolean editar(Object obj) {
        /* 
          
-        String nomeBolo = JOptionPane.showInputDialog("Novo nome do bolo: ");
-        BoloCobertura bc = new BoloCobertura (nomeBolo);
-        
-        Ingrediente ingB1_1,ingB1_2,ingB1_3, ingB1_4, ingB1_5;
-    ingB1_1 = new Ingrediente(60,farinha);
-    ingB1_2 = new Ingrediente(80,leite);
-    ingB1_3 = new Ingrediente(50,manteiga);
-    ingB1_4 = new Ingrediente(60,acucar);
-    ingB1_5 = new Ingrediente(40,milho);
-    bolo1.adicionaIngrediente(ingB1_1);
-    bolo1.adicionaIngrediente(ingB1_2);
-    bolo1.adicionaIngrediente(ingB1_3);
-    bolo1.adicionaIngrediente(ingB1_4);
-    bolo1.adicionaIngrediente(ingB1_5);
-        
-    
-
-
         for(int i = 0 ; i < 10 ; i++){
             
             if(obj.equals(Tortas.get(i))){
@@ -69,13 +51,20 @@ public class TortaDAO implements InterfaceDAO {
 
          for(int i = 0 ; i < 10 ; i++){
             
-            if(obj.equals(Tortas.get(i))){
-                System.out.println(Tortas.toString());
+            if(obj.equals(getTortas().get(i))){
+                System.out.println(getTortas().toString());
                 return true;
             }
            
         }
         return false;
+    }
+
+    /**
+     * @return the Tortas
+     */
+    public ArrayList<Torta> getTortas() {
+        return Tortas;
     }
 
    
