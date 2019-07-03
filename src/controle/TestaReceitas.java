@@ -29,37 +29,50 @@ public class TestaReceitas {
     DecimalFormat df = new DecimalFormat("##.##");
     
     // Instanciar os Produtos
-    Produto farinha, leite, manteiga, acucar, ovos, cacao, leiteCoco,
-            milho, laranja, chocolate, cremeDeLeite;
+    Produto farinha, aveia, leite, manteiga, acucar, ovos, cacao, leiteDeCoco,
+            milho, laranja, cenoura, chocolate, cremeDeLeite, oleoVegetal, fermento;
+    
     farinha = new Produto("Farinha",0.1f, 0.2f, 0.3f);
+    aveia = new Produto("Aveia", 0.3f, 0.2f, 0.3f);
     leite = new Produto("Leite",0.2f ,0.3f, 0.4f);
     manteiga = new Produto("Manteiga", 0.3f, 0.4f, 0.5f);
     acucar = new Produto("Açucar", 0.3f, 0.2f, 0.1f);
     ovos = new Produto ("Ovos", 0.1f, 0.1f, 0.2f);
     cacao = new Produto("Cacao", 0.2f, 0.2f, 0.3f);
-    leiteCoco = new Produto ("Leite de Coco", 0.1f, 0.2f, 0.2f);
+    leiteDeCoco = new Produto ("Leite de Coco", 0.1f, 0.2f, 0.2f);
     milho = new Produto ("Milho", 0.2f, 0.1f, 0.2f);
     laranja = new Produto("Laranja", 0.2f, 0.2f, 0.2f);
+    cenoura = new Produto("Cenoura", 0.2f, 0.3f, 0.1f);
     chocolate = new Produto("Chocolate", 0.3f, 0.5f, 0.6f);
     cremeDeLeite = new Produto("Creme de Leite", 0.2f, 0.3f, 0.3f);
+    oleoVegetal = new Produto("Oleo Vegetal", 0.1f, 0.1f, 0.2f);
+    fermento = new Produto("Fermento", 0.05f, 0.05f, 0.04f);
     
     //Lista de Produtos
     List<Produto> produtos = new ArrayList<Produto>();
     produtos.add(farinha);
+    produtos.add(aveia);
     produtos.add(leite);
     produtos.add(manteiga);
     produtos.add(acucar);
     produtos.add(ovos);
     produtos.add(cacao);
-    produtos.add(leiteCoco);
+    produtos.add(leiteDeCoco);
     produtos.add(milho);
     produtos.add(laranja);
+    produtos.add(cenoura);
+    produtos.add(chocolate);
+    produtos.add(cremeDeLeite);
+    produtos.add(oleoVegetal);
+    produtos.add(fermento);
     
-    Sabor s1 = new Sabor("chocolate");
-    Sabor s2 = new Sabor("coco");
-    Sabor s3 = new Sabor("morango");
-    Sabor s4 = new Sabor("laranja");
-    Sabor s5 = new Sabor("milho");
+    //Sabores
+    Sabor s1 = new Sabor("Chocolate");
+    Sabor s2 = new Sabor("Coco");
+    Sabor s3 = new Sabor("Morango");
+    Sabor s4 = new Sabor("Laranja");
+    Sabor s5 = new Sabor("Milho");
+    Sabor s6 = new Sabor("Cenoura"); 
     
     
     
@@ -123,6 +136,8 @@ public class TestaReceitas {
     bolo3.adicionaIngrediente(ingB3_6);
     bolo3.adicionaIngrediente(ingB3_7);
 
+    td.inserir(bolo3);
+    
     //Torta Floresta Negra
     bolo4 = new Torta (201,"Torta Floresta Negra");
     Ingrediente ingB4_1,ingB4_2,ingB4_3, ingB4_4,ingB4_5,ingB4_6,ingB4_7;
@@ -142,8 +157,47 @@ public class TestaReceitas {
     bolo4.adicionaIngrediente(ingB4_6);
     bolo4.adicionaIngrediente(ingB4_7);
     
-    td.inserir(bolo3);
     td.inserir(bolo4);
+    
+    //Bolo Vegano de Cenoura
+    bolo5 = new BoloVegano (300,"Bolo Vegano de Cenoura");
+    Ingrediente ingB5_1,ingB5_2,ingB5_3, ingB5_4, ingB5_5;
+    ingB5_1 = new Ingrediente(60,farinha);
+    ingB5_2 = new Ingrediente(30,oleoVegetal);
+    ingB5_3 = new Ingrediente(5,fermento);
+    ingB5_4 = new Ingrediente(60,acucar);
+    ingB5_5 = new Ingrediente(70,cenoura);
+    bolo5.adicionaIngrediente(ingB5_1);
+    bolo5.adicionaIngrediente(ingB5_2);
+    bolo5.adicionaIngrediente(ingB5_3);
+    bolo5.adicionaIngrediente(ingB5_4);
+    bolo5.adicionaIngrediente(ingB5_5);
+    
+    bvd.inserir(bolo5);
+ 
+    //Bolo Vegano de Chocolate com Aveia
+    bolo6 = new BoloVegano (301,"Bolo Vegano de Chocolate com Aveia");
+    Ingrediente ingB6_1,ingB6_2,ingB6_3, ingB6_4, ingB6_5, ingB6_6, ingB6_7;
+    ingB6_1 = new Ingrediente(40,farinha);
+    ingB6_2 = new Ingrediente(20,leiteDeCoco);
+    ingB6_3 = new Ingrediente(30,aveia);
+    ingB6_4 = new Ingrediente(50,acucar);
+    ingB6_5 = new Ingrediente(30,cacao);
+    ingB6_6 = new Ingrediente(30,oleoVegetal);
+    ingB6_7 = new Ingrediente(5,fermento);
+    bolo6.adicionaIngrediente(ingB6_1);
+    bolo6.adicionaIngrediente(ingB6_2);
+    bolo6.adicionaIngrediente(ingB6_3);
+    bolo6.adicionaIngrediente(ingB6_4);
+    bolo6.adicionaIngrediente(ingB6_5);
+    bolo6.adicionaIngrediente(ingB6_6);
+    bolo6.adicionaIngrediente(ingB6_7);
+        
+    bvd.inserir(bolo6);
+
+    
+    
+    
     
     /*
     
@@ -249,7 +303,7 @@ public class TestaReceitas {
                 default:
 
             }
-        };
+        }
         
         
         
