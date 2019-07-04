@@ -65,18 +65,7 @@ public class TestaReceitas {
     produtos.add(cremeDeLeite);
     produtos.add(oleoVegetal);
     produtos.add(fermento);
-    
-    //Sabores
-    Sabor s1 = new Sabor("Chocolate");
-    Sabor s2 = new Sabor("Coco");
-    Sabor s3 = new Sabor("Morango");
-    Sabor s4 = new Sabor("Laranja");
-    Sabor s5 = new Sabor("Milho");
-    Sabor s6 = new Sabor("Cenoura"); 
-    
-    
-    
-        
+      
     //Criando as coleções DAO
     BoloCoberturaDAO bcd = new BoloCoberturaDAO();
     BoloVeganoDAO bvd = new BoloVeganoDAO();
@@ -99,7 +88,6 @@ public class TestaReceitas {
     bolo1.adicionaIngrediente(ingB1_4);
     bolo1.adicionaIngrediente(ingB1_5);
     
-    bcd.inserir(bolo1);
  
     //Bolo de Laranja Cobertura Leite Condensado
     bolo2 = new BoloCobertura (101,"Bolo de Laranja Cobertura Leite Condensado");
@@ -115,7 +103,6 @@ public class TestaReceitas {
     bolo2.adicionaIngrediente(ingB2_4);
     bolo2.adicionaIngrediente(ingB2_5);
     
-    bcd.inserir(bolo2);
 
     //Torta Martha Rocha
     bolo3 = new Torta (200,"Torta Martha Rocha");
@@ -135,8 +122,6 @@ public class TestaReceitas {
     bolo3.adicionaIngrediente(ingB3_5);
     bolo3.adicionaIngrediente(ingB3_6);
     bolo3.adicionaIngrediente(ingB3_7);
-
-    td.inserir(bolo3);
     
     //Torta Floresta Negra
     bolo4 = new Torta (201,"Torta Floresta Negra");
@@ -156,8 +141,7 @@ public class TestaReceitas {
     bolo4.adicionaIngrediente(ingB4_5);
     bolo4.adicionaIngrediente(ingB4_6);
     bolo4.adicionaIngrediente(ingB4_7);
-    
-    td.inserir(bolo4);
+  
     
     //Bolo Vegano de Cenoura
     bolo5 = new BoloVegano (300,"Bolo Vegano de Cenoura");
@@ -173,8 +157,6 @@ public class TestaReceitas {
     bolo5.adicionaIngrediente(ingB5_4);
     bolo5.adicionaIngrediente(ingB5_5);
     
-    bvd.inserir(bolo5);
- 
     //Bolo Vegano de Chocolate com Aveia
     bolo6 = new BoloVegano (301,"Bolo Vegano de Chocolate com Aveia");
     Ingrediente ingB6_1,ingB6_2,ingB6_3, ingB6_4, ingB6_5, ingB6_6, ingB6_7;
@@ -192,36 +174,10 @@ public class TestaReceitas {
     bolo6.adicionaIngrediente(ingB6_5);
     bolo6.adicionaIngrediente(ingB6_6);
     bolo6.adicionaIngrediente(ingB6_7);
-        
-    bvd.inserir(bolo6);
-
-    
-    
-    
-    
     /*
-    
-    System.out.println("Nome -    " + "\tCarboidratos - Proteinas - Gordura - Calorias");
-    for(Produto prod : produtos){
-        System.out.println(prod.getNome() + "\t -\t\t" + df.format(prod.getCarboidrato()) + " -\t" + df.format(prod.getProteina()) +
-                " - \t\t" + df.format(prod.getGordura()) + " - \t" + df.format(prod.calorias()));
-    }
-    System.out.println("-------------------------------------------------------");
-    
-    //Imprime Bolo
-    System.out.println("Nome: " + bolo1.getNome());
-    
-    System.out.println("-------------------------------------------------------");
-     
-
-*/
     JOptionPane.showMessageDialog(null,"Confeitaria Três Amigos");
     String nome = JOptionPane.showInputDialog("Qual o seu nome ?");
-        
-        
-        //JOptionPane.showMessageDialog(null,"Bem vindo à Confeitaria Três Amigos Sr(a) " + nome);
-        //JOptionPane.showMessageDialog(null,"Em que podemos atenderlo(a)");
-        
+       
         ArrayList <BoloCobertura> bolosCob = bcd.getBolosCobertura();
         int tamCob = bcd.getBolosCobertura().size(); 
         ArrayList <BoloVegano> bolosVeg = bvd.getBolosVeganos();
@@ -242,68 +198,196 @@ public class TestaReceitas {
             opcoes[i] = totalBolos.get(i).getNome();
         }
         
-        String[] listaUser = {"Vendedor","Confeiteiro"};
-        String input1 = (String) JOptionPane.showInputDialog(null, "Informe sua função: ",
-        "Função", JOptionPane.QUESTION_MESSAGE, null, // Use
-        listaUser, // Array of choices
-        listaUser[0]); // Initial choice
-        String usuario = input1;
-        
-        if(usuario.equalsIgnoreCase("Vendedor")){
-            
-                String input2 = (String) JOptionPane.showInputDialog(null, "Selecione o bolo: ",
-                "Escolha", JOptionPane.QUESTION_MESSAGE, null, // Use
-                opcoes, // Array of choices
-                opcoes[0]); // Initial choice
-                String escolhido = input2;
-
-                String q = JOptionPane.showInputDialog("Quantidade: ");
-                int qtde = Integer.parseInt(q);
-                //double qtde = Double.parseDouble("2.3");
-                System.out.println(qtde + " " + escolhido);
-                
-        }
-        else if(usuario.equalsIgnoreCase("Confeiteiro")){
-            String opcaoInicial = JOptionPane.showInputDialog
-                ("Selecione a opção desejada:"
-                    + "1-Inserir"
-                    + "2-Excluir"
-                    + "3-Editar"
-                    + "4-Pesquisar");
+        */
+          String opcaoInicial = JOptionPane.showInputDialog
+                ("Selecione a opção desejada:\n"
+                    + "1-Inserir\n"
+                    + "2-Excluir\n"
+                    + "3-Editar\n"
+                    + "4-Pesquisar\n");
 
             switch(opcaoInicial){
 
                 case "1":
-                    String[] listaTipos = {"Bolo Cobertura","Bolo Vegano","Bolo Torta"};
-                    String input3 = (String) JOptionPane.showInputDialog(null, "Informe o tipo de bolo: ",
-                    "Tipos", JOptionPane.QUESTION_MESSAGE, null, // Use
-                    listaTipos, // Array of choices
-                    listaTipos[0]); // Initial choice
-                    String tipo = input3;
-                    if (tipo.equalsIgnoreCase("Bolo Cobertura")){
+                    
+                String opcaoBolosInserir = JOptionPane.showInputDialog
+                ("Selecione o bolo que deseja inserir:\n"
+                    + "101-Bolo de Milho Cobertura Chocolate\n"
+                    + "102-Bolo de Laranja Cobertura Leite Condensado\n"
+                    + "103-Torta Martha Rocha\n"
+                    + "104-Torta Floresta Negra\n"
+                    + "105-Bolo Vegano de Cenoura\n"
+                    + "106-Bolo Vegano de Chocolate com Aveia\n");
+                
+                switch(opcaoBolosInserir){
+                    
+                    case "101":
+                        bcd.inserir(bolo1);
+                        break;
+                    case "102":
+                        bcd.inserir(bolo2);
+                        break;
+                    case "103":
+                        bcd.inserir(bolo3);
+                        break;
+                    case "104":
                         bcd.inserir(bolo4);
-                    }
-                    else if(tipo.equalsIgnoreCase("Bolo Vegano")){
-                        bvd.inserir(bolo4);
-                    }
-                    else if(tipo.equalsIgnoreCase("Bolo Torta")){
-                        td.inserir(bolo4);
-                    }
-                    break;
+                        break;
+                    case "105":
+                        bcd.inserir(bolo5);
+                        break;
+                    case "106":
+                        bcd.inserir(bolo6);
+                        break;
+                    default:
+                        ;
+                 
+                }
+                    
                 case "2":
                     
+                String opcaoBolosExcluir = JOptionPane.showInputDialog
+                ("Selecione o bolo que deseja excluir:\n"
+                    + "101-Bolo de Milho Cobertura Chocolate\n"
+                    + "102-Bolo de Laranja Cobertura Leite Condensado\n"
+                    + "103-Torta Martha Rocha\n"
+                    + "104-Torta Floresta Negra\n"
+                    + "105-Bolo Vegano de Cenoura\n"
+                    + "106-Bolo Vegano de Chocolate com Aveia\n");
+                
+                switch(opcaoBolosExcluir){
                     
-                    
-                    
+                    case "101":
+                        bcd.excluir(bolo1);
+                        break;
+                    case "102":
+                        bcd.excluir(bolo2);
+                        break;
+                    case "103":
+                        bcd.excluir(bolo3);
+                        break;
+                    case "104":
+                        bcd.excluir(bolo4);
+                        break;
+                    case "105":
+                        bcd.excluir(bolo5);
+                        break;
+                    case "106":
+                        bcd.excluir(bolo6);
+                        break;
+                    default:
+                        ;
+                }   
                     break;
                 case "3":
+                String opcaoBolosEditar = JOptionPane.showInputDialog
+                ("Selecione o bolo que deseja editar:\n"
+                    + "101-Bolo de Milho Cobertura Chocolate\n"
+                    + "102-Bolo de Laranja Cobertura Leite Condensado\n"
+                    + "103-Torta Martha Rocha\n"
+                    + "104-Torta Floresta Negra\n"
+                    + "105-Bolo Vegano de Cenoura\n"
+                    + "106-Bolo Vegano de Chocolate com Aveia\n");
+                
+                switch(opcaoBolosEditar){
+                    
+                    case "101":
+                        BoloCobertura bc1;
+                        bc1 = bcd.buscarBolo(101);
+                        String novoPreco1 = JOptionPane.showInputDialog
+                        ("Digite o novo preço:\n");
+                        double np1 = Double.parseDouble(novoPreco1);
+                        bc1.setPreco(np1);
+                        bcd.editar(bc1);
+                        break;
+                    case "102":
+                        BoloCobertura bc2;
+                        bc2 = bcd.buscarBolo(102);
+                        String novoPreco2 = JOptionPane.showInputDialog
+                        ("Digite o novo preço:\n");
+                        double np2 = Double.parseDouble(novoPreco2);
+                        bc2.setPreco(np2);
+                        bcd.editar(bc2);
+                        break;
+                    case "103":
+                        Torta bt3;
+                        bt3 = td.buscarBolo(103);
+                        String novoPreco3 = JOptionPane.showInputDialog
+                        ("Digite o novo preço:\n");
+                        double np3 = Double.parseDouble(novoPreco3);
+                        bt3.setPreco(np3);
+                        td.editar(bt3);
+                        break;
+                    case "104":
+                        Torta bt4;
+                        bt4 = td.buscarBolo(104);
+                        String novoPreco4 = JOptionPane.showInputDialog
+                        ("Digite o novo preço:\n");
+                        double np4 = Double.parseDouble(novoPreco4);
+                        bt4.setPreco(np4);
+                        td.editar(bt4);
+                        break;
+                    case "105":
+                        BoloVegano bv5;
+                        bv5 = bvd.buscarBolo(105);
+                        String novoPreco5 = JOptionPane.showInputDialog
+                        ("Digite o novo preço:\n");
+                        double np5 = Double.parseDouble(novoPreco5);
+                        bv5.setPreco(np5);
+                        bvd.editar(bv5);
+                        break;
+                    case "106":
+                        BoloVegano bv6;
+                        bv6 = bvd.buscarBolo(106);
+                        String novoPreco6 = JOptionPane.showInputDialog
+                        ("Digite o novo preço:\n");
+                        double np6 = Double.parseDouble(novoPreco6);
+                        bv6.setPreco(np6);
+                        bvd.editar(bv6);
+                        break;
+                    default:
+                        ;
+                }
                     break;
                 case "4":
-                    break;
+                    String opcaoBolosPesquisar = JOptionPane.showInputDialog
+                ("Selecione o bolo que deseja pesquisar:\n"
+                    + "101-Bolo de Milho Cobertura Chocolate\n"
+                    + "102-Bolo de Laranja Cobertura Leite Condensado\n"
+                    + "103-Torta Martha Rocha\n"
+                    + "104-Torta Floresta Negra\n"
+                    + "105-Bolo Vegano de Cenoura\n"
+                    + "106-Bolo Vegano de Chocolate com Aveia\n");
+                
+                switch(opcaoBolosPesquisar){
+                    
+                    case "101":
+                        bcd.pesquisar(bolo1);
+                        break;
+                    case "102":
+                        bcd.pesquisar(bolo2);
+                        break;
+                    case "103":
+                        bcd.pesquisar(bolo3);
+                        break;
+                    case "104":
+                        bcd.pesquisar(bolo4);
+                        break;
+                    case "105":
+                        bcd.pesquisar(bolo5);
+                        break;
+                    case "106":
+                        bcd.pesquisar(bolo6);
+                        break;
+                    default:
+                        ;
+                 
+                }
                 default:
+                    ;
 
             }
-        }
+        
         
         
         

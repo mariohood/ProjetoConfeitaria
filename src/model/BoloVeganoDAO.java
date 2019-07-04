@@ -14,25 +14,22 @@ public class BoloVeganoDAO implements InterfaceDAO {
 
     @Override
     public boolean excluir(Object obj) {
-        Object ob = (BoloVegano)obj;
-        for(int i = 0 ; i < 10 ; i++){          
-            if(ob.equals(getBolosVeganos().get(i))){
-                getBolosVeganos().remove(i);
+        BoloVegano ob = (BoloVegano)obj;
+              
+            if(bolosVeganos.remove(ob)){ // método "remove" remove a primeira ocorrência do objeto encontrada dentro da lista
                 return true;
             }
            
-        }
         return false;
     }
+    
+    
 
     @Override
     public boolean editar(Object obj) {
         
-        /*
         
-         
-       
-
+        /*
         for(int i = 0 ; i < 10 ; i++){
             
             if(obj.equals(BoloVegano.get(i))){
@@ -62,11 +59,18 @@ public class BoloVeganoDAO implements InterfaceDAO {
         return false;
     }
 
-    /**
-     * @return the bolosVeganos
-     */
     public ArrayList<BoloVegano> getBolosVeganos() {
         return bolosVeganos;
+    }
+    
+    public BoloVegano buscarBolo(int codigo){
+        for(int i = 0 ; i < bolosVeganos.size() ; i++){
+            BoloVegano bolo = bolosVeganos.get(i);
+           if(codigo == bolo.getCodBolo()){
+               return bolo; 
+           }     
+        } 
+        return null; 
     }
 
     

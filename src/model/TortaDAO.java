@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 public class TortaDAO implements InterfaceDAO {
     
    
-    private ArrayList<Torta> Tortas = new ArrayList();
+    private ArrayList<Torta> tortas = new ArrayList();
 
     @Override
     public boolean inserir(Object obj) {
@@ -15,15 +15,13 @@ public class TortaDAO implements InterfaceDAO {
         return (getTortas().add(b));    }
 
     @Override
-    public boolean excluir(Object obj) {
-        Object ob = (Torta)obj;
-        for(int i = 0 ; i < 10 ; i++){          
-            if(ob.equals(getTortas().get(i))){
-                getTortas().remove(i);
+     public boolean excluir(Object obj) {
+        Torta ob = (Torta)obj;
+        
+            if(tortas.remove(ob)){ // método "remove" remove a primeira ocorrência do objeto encontrada dentro da lista
                 return true;
             }
            
-        }
         return false;
     }
 
@@ -64,7 +62,17 @@ public class TortaDAO implements InterfaceDAO {
      * @return the Tortas
      */
     public ArrayList<Torta> getTortas() {
-        return Tortas;
+        return tortas;
+    }
+    
+    public Torta buscarBolo(int codigo){
+        for(int i = 0 ; i < tortas.size() ; i++){
+            Torta bolo = tortas.get(i);
+           if(codigo == bolo.getCodBolo()){
+               return bolo; 
+           }     
+        } 
+        return null; 
     }
 
    

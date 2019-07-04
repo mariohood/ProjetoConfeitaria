@@ -14,15 +14,13 @@ public class BoloCoberturaDAO implements InterfaceDAO {
         return (getBolosCobertura().add(b));    }
 
     @Override
-    public boolean excluir(Object obj) {
-        Object ob = (BoloCobertura)obj;
-        for(int i = 0 ; i < 10 ; i++){          
-            if(ob.equals(getBolosCobertura().get(i))){
-                getBolosCobertura().remove(i);
+     public boolean excluir(Object obj) {
+        BoloCobertura ob = (BoloCobertura)obj;
+              
+            if(bolosCobertura.remove(ob)){ // método "remove" remove a primeira ocorrência do objeto encontrada dentro da lista
                 return true;
             }
            
-        }
         return false;
     }
 
@@ -67,7 +65,15 @@ public class BoloCoberturaDAO implements InterfaceDAO {
         return bolosCobertura;
     }
 
-   
+   public BoloCobertura buscarBolo(int codigo){
+        for(int i = 0 ; i < bolosCobertura.size() ; i++){
+            BoloCobertura bolo = bolosCobertura.get(i);
+           if(codigo == bolo.getCodBolo()){
+               return bolo; 
+           }     
+        } 
+        return null; 
+    }
     
     
     

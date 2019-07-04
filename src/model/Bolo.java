@@ -8,9 +8,11 @@ import java.util.List;
 public abstract class Bolo {
     
     //Atributo
+    private int idBolo;
     private int codBolo;
     private String nome;
-    
+    private double preco;
+
     //lista de ingredientes del bolo caso seja solicitado
     private ArrayList<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
     //lista de ingredientes del bolo caso seja solicitado
@@ -59,28 +61,38 @@ public abstract class Bolo {
         return totalCalorias;
     }
 
-    /**
-     * @param nome the nome to set
-     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    /**
-     * @return the ingredientes
-     */
     public ArrayList<Ingrediente> getIngredientes() {
         return ingredientes;
     }
 
-    
     public ArrayList<Sabor> getSabores() {
         return sabores;
     }
 
-    
     public void inserirSabor(Sabor sabor) {
         getSabores().add(sabor);
     }
+
+    public int getCodBolo() {
+        return codBolo;
+    }
+
+    public void setCodBolo(int codBolo) {
+        this.codBolo = codBolo;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+    
+    
     
 }//Fim Bolo
